@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -21,5 +22,27 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func refresh(sender: AnyObject) {
+        
+        let obj = UserLocation(accuracy:kCLLocationAccuracyBest, distance: 30)
+        
+        print("latitude \(obj.coordinates?.latitude) longitude = \(obj.coordinates?.longitude)")
+        print("current latitude \(obj.mylocation.location?.coordinate.latitude) current longitude = \(obj.mylocation.location?.coordinate.longitude)")
+        
+        /* class locationtracker : LocationServiceDelegate{
+            func tracingLocation(currentLocation: CLLocation){
+                print("latitude \(currentLocation.coordinate.latitude)) longitude = \(currentLocation.coordinate.longitude)")
+            }
+            func tracingLocationDidFailWithError(error: NSError){
+                
+           
+            }
+        }
+        let obj = LocationService()
+        obj.delegate = locationtracker()
+        obj.startUpdatingLocation()*/
+        
+        
+    }
 }
 
